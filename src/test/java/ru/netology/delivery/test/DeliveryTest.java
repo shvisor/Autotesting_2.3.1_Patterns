@@ -1,5 +1,6 @@
 package ru.netology.delivery.test;
 
+import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -22,7 +23,7 @@ class DeliveryTest {
 
     @BeforeEach
     void setup() {
-//        Configuration.headless = true;
+        Configuration.headless = true;
         open("http://localhost:9999");
     }
 
@@ -211,7 +212,6 @@ class DeliveryTest {
         $(".button").click();
         $("[data-test-id='phone'] .input__sub").shouldBe(visible).shouldBe(exactText(fail));
     }
-    // TODO: написать репорт. проходят 8 и меньшее количество цифр
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/negativedate.csv", delimiter = '|')
