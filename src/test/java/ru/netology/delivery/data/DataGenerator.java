@@ -26,7 +26,7 @@ public class DataGenerator {
         Faker faker = new Faker(new Locale(locale));
         String lastName = faker.name().lastName();
         String firstName = faker.name().firstName();
-        return lastName + firstName;
+        return lastName + " " + firstName;
     }
 
     public static String generatePhone(String locale) {
